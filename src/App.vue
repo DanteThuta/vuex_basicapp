@@ -1,15 +1,17 @@
 <template>
   <div id="app">
-    <h2>{{$store.state.Todos.sayHello}}</h2>
+    <Todos/>
   </div>
 </template>
 
 <script>
 
 
+import Todos from './components/Todos'
 export default {
   name: 'App',
   components: {
+    Todos,
     
   },
   mounted(){
