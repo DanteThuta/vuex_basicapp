@@ -15,11 +15,12 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
+import {mapActions, mapGetters} from 'vuex'
 export default {
-    computed: mapGetters(["myTodos"]),
+    computed:mapGetters(["myTodos"]),
+    methods: mapActions(["getTodos"]),
     mounted(){
-        console.log(this.myTodos)
+        this.getTodos()
     }
 }
 </script>

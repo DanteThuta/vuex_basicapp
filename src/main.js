@@ -3,7 +3,7 @@ import App from './App.vue';
 import store from './store';
 Vue.config.productionTip = false
 
-//bootstrap-vue setup
+//BOOSTRAP VUE SETUP 
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 
 // Import Bootstrap an BootstrapVue CSS files (order is important)
