@@ -15,6 +15,11 @@ export default {
         },
         setTodo(state,newTodo){
             state.todos.unshift(newTodo);
+        },
+        removeTodo(state,removeId){
+            state.todos = state.todos.filter((todo)=>{
+                return todo.id!=removeId;
+            })
         }
     },
     actions: {
@@ -30,6 +35,10 @@ export default {
             let res = await axios.post("https://jsonplaceholder.typicode.com/todos",newTodo);
             console.log(res.data);
             commit("setTodo",res.data);
-        }
+        },
+        async deleteTodo(context,removeId){
+            await axios.delete(`https://jsonplaceholder.typicode.com/todos/${removeId}`);//require to Add id to Delete Process
+            context.commit("removeTodo",removeId);
+        },
     }
 }
