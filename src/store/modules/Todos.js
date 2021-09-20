@@ -8,6 +8,7 @@ export default {
         myTodos(state){
             return state.todos;
         }
+        
     },
     mutations:{
         setTodos(state,todos){
@@ -33,12 +34,17 @@ export default {
         },
         async addTodo({commit},newTodo){
             let res = await axios.post("https://jsonplaceholder.typicode.com/todos",newTodo);
-            console.log(res.data);
+            // console.log(res.data);
             commit("setTodo",res.data);
         },
         async deleteTodo(context,removeId){
             await axios.delete(`https://jsonplaceholder.typicode.com/todos/${removeId}`);//require to Add id to Delete Process
             context.commit("removeTodo",removeId);
         },
+        async FilterTodos(context,limit){
+            let res = await axios.get(`https://jsonplaceholder.typicode.com/todos?_limit=${limit}`);
+            let filterTodos = res.data;
+            context.commit("setTodos",filterTodos);
+        }
     }
 }

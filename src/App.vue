@@ -15,7 +15,7 @@ export default {
     
   },
   mounted(){
-    console.log(this.$store.state.Todos.sayHello);// getting state 
+    // console.log(this.$store.state.Todos.sayHello);// getting state 
   }
 }
 </script>
